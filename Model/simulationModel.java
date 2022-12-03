@@ -10,14 +10,23 @@ public class simulationModel {
     private int year;
     private boolean tsunamiHappened,earthquakeHappened,tsunamiCausedEarthquake;
 
-    public simulationModel(Rats hamster, Humans people, Weapons weapon, Sharks shark, Tsunami tsunami, Earthquake earthquake, int year){
-        this.hamster=hamster;
-        this.earthquake=earthquake;
-        this.shark=shark;
-        this.people=people;
-        this.tsunami=tsunami;
-        this.year=year;
-        this.weapon=weapon;
+    public simulationModel(){
+        year=0;
+        World.humidity=50;
+        World.temperature=5;
+        Ground.soilFertility=55;
+        Ground.waterAmount=25;
+        people = new Humans();
+        shark = new Sharks();
+        hamster = new Rats();
+        weapon = new Weapons();
+        tsunami = new Tsunami();
+        earthquake = new Earthquake();
+        people.setAttributes(0, 100, 60, -20, 500, 20,10);
+        shark.setAttributes(30, 100, 40, -30, 20, 80, 10);
+        hamster.setAttributes(40, 70, 31, 20, 20, 5, 1);
+        tsunami.setDestructionLevel(50); tsunami.setDuration(5);
+        earthquake.setDestructionLevel(50); earthquake.setDuration(5);
     }
 
     public void startSimulation(){
